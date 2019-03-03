@@ -42,7 +42,7 @@ func NewABitOfEverythingServiceApiWithBasePath(basePath string) *ABitOfEverythin
  * Create a new ABitOfEverything
  * This API creates a new ABitOfEverything
  *
- * @param floatValue 
+ * @param floatValue Float value field
  * @param doubleValue 
  * @param int64Value 
  * @param uint64Value 
@@ -60,13 +60,14 @@ func NewABitOfEverythingServiceApiWithBasePath(basePath string) *ABitOfEverythin
  * @param enumValue 
  * @param pathEnumValue 
  * @param nestedPathEnumValue 
+ * @param enumValueAnnotation Numeric enum description.
  * @return *ExamplepbABitOfEverything
  */
-func (a ABitOfEverythingServiceApi) Create(floatValue float32, doubleValue float64, int64Value string, uint64Value string, int32Value int32, fixed64Value string, fixed32Value int64, boolValue bool, stringValue string, uint32Value int64, sfixed32Value int32, sfixed64Value string, sint32Value int32, sint64Value string, nonConventionalNameValue string, enumValue string, pathEnumValue string, nestedPathEnumValue string) (*ExamplepbABitOfEverything, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) Create(floatValue float32, doubleValue float64, int64Value string, uint64Value string, int32Value int32, fixed64Value string, fixed32Value int64, boolValue bool, stringValue string, uint32Value int64, sfixed32Value int32, sfixed64Value string, sint32Value int32, sint64Value string, nonConventionalNameValue string, enumValue string, pathEnumValue string, nestedPathEnumValue string, enumValueAnnotation string) (*ExamplepbABitOfEverything, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/v1/example/a_bit_of_everything/{float_value}/{double_value}/{int64_value}/separator/{uint64_value}/{int32_value}/{fixed64_value}/{fixed32_value}/{bool_value}/{string_value}/{uint32_value}/{sfixed32_value}/{sfixed64_value}/{sint32_value}/{sint64_value}/{nonConventionalNameValue}/{enum_value}/{path_enum_value}/{nested_path_enum_value}"
+	localVarPath := a.Configuration.BasePath + "/v1/example/a_bit_of_everything/{float_value}/{double_value}/{int64_value}/separator/{uint64_value}/{int32_value}/{fixed64_value}/{fixed32_value}/{bool_value}/{string_value}/{uint32_value}/{sfixed32_value}/{sfixed64_value}/{sint32_value}/{sint64_value}/{nonConventionalNameValue}/{enum_value}/{path_enum_value}/{nested_path_enum_value}/{enum_value_annotation}"
 	localVarPath = strings.Replace(localVarPath, "{"+"float_value"+"}", fmt.Sprintf("%v", floatValue), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"double_value"+"}", fmt.Sprintf("%v", doubleValue), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"int64_value"+"}", fmt.Sprintf("%v", int64Value), -1)
@@ -85,6 +86,7 @@ func (a ABitOfEverythingServiceApi) Create(floatValue float32, doubleValue float
 	localVarPath = strings.Replace(localVarPath, "{"+"enum_value"+"}", fmt.Sprintf("%v", enumValue), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"path_enum_value"+"}", fmt.Sprintf("%v", pathEnumValue), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"nested_path_enum_value"+"}", fmt.Sprintf("%v", nestedPathEnumValue), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"enum_value_annotation"+"}", fmt.Sprintf("%v", enumValueAnnotation), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -303,9 +305,9 @@ func (a ABitOfEverythingServiceApi) DeepPathEcho(singleNestedName string, body E
  * 
  *
  * @param uuid 
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) Delete(uuid string) (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) Delete(uuid string) (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
@@ -350,7 +352,7 @@ func (a ABitOfEverythingServiceApi) Delete(uuid string) (*ProtobufEmpty, *APIRes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -371,9 +373,9 @@ func (a ABitOfEverythingServiceApi) Delete(uuid string) (*ProtobufEmpty, *APIRes
 /**
  * 
  *
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) ErrorWithDetails() (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) ErrorWithDetails() (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -422,7 +424,7 @@ func (a ABitOfEverythingServiceApi) ErrorWithDetails() (*ProtobufEmpty, *APIResp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -445,9 +447,9 @@ func (a ABitOfEverythingServiceApi) ErrorWithDetails() (*ProtobufEmpty, *APIResp
  *
  * @param id 
  * @param body 
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) GetMessageWithBody(id string, body ExamplepbBody) (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) GetMessageWithBody(id string, body ExamplepbBody) (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -499,7 +501,7 @@ func (a ABitOfEverythingServiceApi) GetMessageWithBody(id string, body Examplepb
 	}
 	// body params
 	localVarPostBody = &body
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -521,10 +523,10 @@ func (a ABitOfEverythingServiceApi) GetMessageWithBody(id string, body Examplepb
  * 
  *
  * @param uuid 
+ * @param floatValue Float value field
  * @param singleNestedName name is nested field.
  * @param singleNestedAmount 
  * @param singleNestedOk  - FALSE: FALSE is false.  - TRUE: TRUE is true.
- * @param floatValue 
  * @param doubleValue 
  * @param int64Value 
  * @param uint64Value 
@@ -547,9 +549,15 @@ func (a ABitOfEverythingServiceApi) GetMessageWithBody(id string, body Examplepb
  * @param nonConventionalNameValue 
  * @param timestampValue 
  * @param repeatedEnumValue repeated enum value. it is comma-separated in query.   - ZERO: ZERO means 0  - ONE: ONE means 1
- * @return *ProtobufEmpty
+ * @param repeatedEnumAnnotation Repeated numeric enum title. Repeated numeric enum description.   - ZERO: ZERO means 0  - ONE: ONE means 1
+ * @param enumValueAnnotation Numeric enum title. Numeric enum description.   - ZERO: ZERO means 0  - ONE: ONE means 1
+ * @param repeatedStringAnnotation Repeated string title. Repeated string description.
+ * @param nestedAnnotationName name is nested field.
+ * @param nestedAnnotationAmount 
+ * @param nestedAnnotationOk  - FALSE: FALSE is false.  - TRUE: TRUE is true.
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) GetQuery(uuid string, singleNestedName string, singleNestedAmount int64, singleNestedOk string, floatValue float32, doubleValue float64, int64Value string, uint64Value string, int32Value int32, fixed64Value string, fixed32Value int64, boolValue bool, stringValue string, bytesValue string, uint32Value int64, enumValue string, pathEnumValue string, nestedPathEnumValue string, sfixed32Value int32, sfixed64Value string, sint32Value int32, sint64Value string, repeatedStringValue []string, oneofString string, nonConventionalNameValue string, timestampValue time.Time, repeatedEnumValue []string) (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) GetQuery(uuid string, floatValue float32, singleNestedName string, singleNestedAmount int64, singleNestedOk string, doubleValue float64, int64Value string, uint64Value string, int32Value int32, fixed64Value string, fixed32Value int64, boolValue bool, stringValue string, bytesValue string, uint32Value int64, enumValue string, pathEnumValue string, nestedPathEnumValue string, sfixed32Value int32, sfixed64Value string, sint32Value int32, sint64Value string, repeatedStringValue []string, oneofString string, nonConventionalNameValue string, timestampValue time.Time, repeatedEnumValue []string, repeatedEnumAnnotation []string, enumValueAnnotation string, repeatedStringAnnotation []string, nestedAnnotationName string, nestedAnnotationAmount int64, nestedAnnotationOk string) (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -596,6 +604,16 @@ func (a ABitOfEverythingServiceApi) GetQuery(uuid string, singleNestedName strin
 	var repeatedEnumValueCollectionFormat = "csv"
 	localVarQueryParams.Add("repeated_enum_value", a.Configuration.APIClient.ParameterToString(repeatedEnumValue, repeatedEnumValueCollectionFormat))
 
+	var repeatedEnumAnnotationCollectionFormat = "csv"
+	localVarQueryParams.Add("repeated_enum_annotation", a.Configuration.APIClient.ParameterToString(repeatedEnumAnnotation, repeatedEnumAnnotationCollectionFormat))
+
+	localVarQueryParams.Add("enum_value_annotation", a.Configuration.APIClient.ParameterToString(enumValueAnnotation, ""))
+	var repeatedStringAnnotationCollectionFormat = "csv"
+	localVarQueryParams.Add("repeated_string_annotation", a.Configuration.APIClient.ParameterToString(repeatedStringAnnotation, repeatedStringAnnotationCollectionFormat))
+
+	localVarQueryParams.Add("nested_annotation.name", a.Configuration.APIClient.ParameterToString(nestedAnnotationName, ""))
+	localVarQueryParams.Add("nested_annotation.amount", a.Configuration.APIClient.ParameterToString(nestedAnnotationAmount, ""))
+	localVarQueryParams.Add("nested_annotation.ok", a.Configuration.APIClient.ParameterToString(nestedAnnotationOk, ""))
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json", "application/x-foo-mime",  }
@@ -616,7 +634,7 @@ func (a ABitOfEverythingServiceApi) GetQuery(uuid string, singleNestedName strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -815,11 +833,88 @@ func (a ABitOfEverythingServiceApi) Lookup(uuid string) (*ExamplepbABitOfEveryth
 /**
  * 
  *
+ * @param abeUuid 
+ * @param body 
+ * @return *interface{}
+ */
+func (a ABitOfEverythingServiceApi) PatchWithFieldMaskInBody(abeUuid string, body ExamplepbUpdateV2Request) (*interface{}, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Patch")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/v2a/example/a_bit_of_everything/{abe.uuid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"abe.uuid"+"}", fmt.Sprintf("%v", abeUuid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(OAuth2)' required
+	// oauth required
+	if a.Configuration.AccessToken != ""{
+		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
+	}
+	// authentication '(BasicAuth)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(ApiKeyAuth)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json", "application/x-foo-mime",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		"application/x-foo-mime",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	var successPayload = new(interface{})
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PatchWithFieldMaskInBody", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
+ * 
+ *
  * @param name 
  * @param body 
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) PostWithEmptyBody(name string, body ExamplepbBody) (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) PostWithEmptyBody(name string, body ExamplepbBody) (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -871,7 +966,7 @@ func (a ABitOfEverythingServiceApi) PostWithEmptyBody(name string, body Examplep
 	}
 	// body params
 	localVarPostBody = &body
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -892,9 +987,9 @@ func (a ABitOfEverythingServiceApi) PostWithEmptyBody(name string, body Examplep
 /**
  * 
  *
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) Timeout() (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) Timeout() (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -943,7 +1038,7 @@ func (a ABitOfEverythingServiceApi) Timeout() (*ProtobufEmpty, *APIResponse, err
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -966,9 +1061,9 @@ func (a ABitOfEverythingServiceApi) Timeout() (*ProtobufEmpty, *APIResponse, err
  *
  * @param uuid 
  * @param body 
- * @return *ProtobufEmpty
+ * @return *interface{}
  */
-func (a ABitOfEverythingServiceApi) Update(uuid string, body ExamplepbABitOfEverything) (*ProtobufEmpty, *APIResponse, error) {
+func (a ABitOfEverythingServiceApi) Update(uuid string, body ExamplepbABitOfEverything) (*interface{}, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Put")
 	// create path and map variables
@@ -1020,12 +1115,166 @@ func (a ABitOfEverythingServiceApi) Update(uuid string, body ExamplepbABitOfEver
 	}
 	// body params
 	localVarPostBody = &body
-	var successPayload = new(ProtobufEmpty)
+	var successPayload = new(interface{})
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
 	localVarURL.RawQuery = localVarQueryParams.Encode()
 	var localVarAPIResponse = &APIResponse{Operation: "Update", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
+ * 
+ *
+ * @param abeUuid 
+ * @param body 
+ * @return *interface{}
+ */
+func (a ABitOfEverythingServiceApi) UpdateV2(abeUuid string, body ExamplepbABitOfEverything) (*interface{}, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Put")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/v2/example/a_bit_of_everything/{abe.uuid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"abe.uuid"+"}", fmt.Sprintf("%v", abeUuid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(OAuth2)' required
+	// oauth required
+	if a.Configuration.AccessToken != ""{
+		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
+	}
+	// authentication '(BasicAuth)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(ApiKeyAuth)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json", "application/x-foo-mime",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		"application/x-foo-mime",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	var successPayload = new(interface{})
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "UpdateV2", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	if localVarHttpResponse != nil {
+		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
+		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	}
+
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
+	return successPayload, localVarAPIResponse, err
+}
+
+/**
+ * 
+ *
+ * @param abeUuid 
+ * @param body 
+ * @return *interface{}
+ */
+func (a ABitOfEverythingServiceApi) UpdateV22(abeUuid string, body ExamplepbABitOfEverything) (*interface{}, *APIResponse, error) {
+
+	var localVarHttpMethod = strings.ToUpper("Patch")
+	// create path and map variables
+	localVarPath := a.Configuration.BasePath + "/v2/example/a_bit_of_everything/{abe.uuid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"abe.uuid"+"}", fmt.Sprintf("%v", abeUuid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make(map[string]string)
+	var localVarPostBody interface{}
+	var localVarFileName string
+	var localVarFileBytes []byte
+	// authentication '(OAuth2)' required
+	// oauth required
+	if a.Configuration.AccessToken != ""{
+		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
+	}
+	// authentication '(BasicAuth)' required
+	// http basic authentication required
+	if a.Configuration.Username != "" || a.Configuration.Password != ""{
+		localVarHeaderParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
+	}
+	// authentication '(ApiKeyAuth)' required
+	// set key with prefix in header
+	localVarHeaderParams["X-API-Key"] = a.Configuration.GetAPIKeyWithPrefix("X-API-Key")
+	// add default headers if any
+	for key := range a.Configuration.DefaultHeader {
+		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json", "application/x-foo-mime",  }
+
+	// set Content-Type header
+	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		"application/x-foo-mime",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &body
+	var successPayload = new(interface{})
+	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "UpdateV22", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
