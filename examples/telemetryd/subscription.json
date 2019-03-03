@@ -1,0 +1,54 @@
+{
+  "eventFilter": {
+    "processEvents": [
+      {
+        "type": "PROCESS_EVENT_TYPE_FORK"
+      },
+      {
+        "type": "PROCESS_EVENT_TYPE_EXEC"
+      },
+      {
+        "type": "PROCESS_EVENT_TYPE_EXIT"
+      }
+    ],
+    "fileEvents": [
+      {
+        "type": "FILE_EVENT_TYPE_OPEN"
+      }
+    ],
+    "networkEvents": [
+      {
+        "type": "NETWORK_EVENT_TYPE_ACCEPT_ATTEMPT"
+      },
+      {
+        "type": "NETWORK_EVENT_TYPE_ACCEPT_RESULT"
+      },
+      {
+        "type": "NETWORK_EVENT_TYPE_CONNECT_ATTEMPT"
+      },
+      {
+        "type": "NETWORK_EVENT_TYPE_CONNECT_RESULT"
+      },
+      {
+        "type": "NETWORK_EVENT_TYPE_BIND_ATTEMPT"
+      },
+      {
+        "type": "NETWORK_EVENT_TYPE_BIND_RESULT"
+      }
+    ],
+    "containerEvents": [
+      {
+        "type": "CONTAINER_EVENT_TYPE_CREATED"
+      },
+      {
+        "type": "CONTAINER_EVENT_TYPE_RUNNING"
+      },
+      {
+        "type": "CONTAINER_EVENT_TYPE_EXITED"
+      },
+      {
+        "type": "CONTAINER_EVENT_TYPE_DESTROYED"
+      }
+    ]
+  }
+}
